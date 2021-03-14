@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table>
+                <tr>
+                    <td colspan="4" class="header">
+                        <h1>List of Enrollees</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="id-width">Id</th>
+                    <th class="name-width">Name</th>
+                    <th class="dob-width">DOB</th>
+                    <th class="Status-width">
+                        <button class="button-active" (click)="getAllEnrollees()">All</button>
+                        <button class="button-active" (click)="toggleStatus()">Active/Inactive</button>
+                    </th>
+                </tr>
+                <tr *ngFor="let enrollee of enrolleeList" class="hover-table" (onSuccess)="getAllEnrollees()">
+                    <td class="id-width"><a [routerLink]="['/enrollees', enrollee.id]">{{enrollee.id}}</a></td>
+                    <td class="name-width">{{enrollee.name}}</td>
+                    <td class="dob-width">{{enrollee.dateOfBirth | date: "MM/dd/yyyy"}}</td>
+                    <td class="Status-width">{{ enrollee.active === true ? "Active" : "Inactive" }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

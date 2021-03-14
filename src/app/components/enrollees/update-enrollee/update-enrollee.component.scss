@@ -1,0 +1,24 @@
+.wrapper{
+    height: 100%;
+    width: fit-content;
+    form {
+        label{
+            margin: 20px;
+        }
+    }
+   .modal-body{
+    width: 100%;
+    margin-left: 100px;
+    .footer-div {
+            justify-content: center;
+            margin-left: 50px;
+            }
+    .custom-button {
+        margin-right: 20px;
+        }
+    }
+    .custom-body {
+        justify-content: center;
+        margin: auto;
+    }
+}

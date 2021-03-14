@@ -1,0 +1,31 @@
+.card {
+    width: 70%;
+    margin: 100px auto;
+    border: 1px solid black;
+}
+.card-header {
+    h1 {
+        margin: 16px 0 16px 0;
+        text-align: center;
+    }
+}
+.card-footer {
+  text-align: center;
+}
+.first-column {
+    text-align: right;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+.second-column {
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+.third-column {
+    text-align: left;
+    line-height: 1.5em;
+}
+.custom-button {
+    margin-right: 50px;
+}

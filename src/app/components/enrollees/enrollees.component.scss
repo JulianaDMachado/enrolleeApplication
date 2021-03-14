@@ -1,0 +1,66 @@
+.container{
+    margin: 50px auto;
+
+table{
+   align-content: center;
+   border: 1px solid black;
+   border-collapse: collapse;
+   opacity: 0.95;
+   width: 80%;
+   height:auto;
+   margin: auto;
+   
+   th{
+       background-color: rgb(194, 18, 18);
+       color: white;
+   }
+
+   tr{
+       &:nth-child(even){
+          background-color: rgb(216, 215, 215);
+       }
+       &:nth-child(odd){
+        background-color: white;
+     }
+
+     &:hover {
+         background-color: rgb(171, 171, 243);
+     }
+   }
+
+   th, td{
+       text-align: left;
+       padding: 10px;
+   }
+
+
+.header{
+    background-color: rgb(65, 65, 156);
+    color: white;
+    text-align: center;
+ }  
+}
+
+.button-active {
+  &:hover {
+    background-color: #5d8dbb;
+    color: white;
+  }
+}
+
+.id-width {
+    max-width: 30%;
+}
+
+.name-width {
+    max-width: 30%;
+}
+
+.dob-width {
+    max-width: 20%;
+}
+
+.status-width {
+    max-width: 20%;
+}
+} 

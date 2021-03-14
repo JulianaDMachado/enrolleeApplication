@@ -1,0 +1,25 @@
+<div class="wrapper">
+    <div class="modal-body ">
+        <form [formGroup]="enrolleeForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="name">Name:</label>
+                <input tupe="text" formControlName="name" value="data.name">
+            </div>
+            <div *ngIf="this.enrolleeForm.get('name').valid" style="color: red;"></div>
+            <div *ngIf="this.enrolleeForm.get('name').errors && this.enrolleeForm.get('name').errors.required"
+                style="color: red;">Name is required</div>
+            <div>
+                <label for="status">Status:</label>
+                <input id="active" type="radio" value="1" name="active" formControlName="active">
+                <label for="active">Active</label>
+                <input id="inactive" type="radio" value="0" name="active" formControlName="active">
+                <label for="inactive">Inactive</label>
+            </div>
+            <div class="footer-div">
+                <button type="submit" class="btn btn-primary custom-button custom-button"
+                    [disabled]="!enrolleeForm.dirty || enrolleeForm.invalid">Submit</button>
+                <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
