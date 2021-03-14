@@ -16,14 +16,14 @@
                         <button class="button-active" (click)="toggleStatus()">Active/Inactive</button>
                     </th>
                 </tr>
-                <tr *ngFor="let enrollee of enrolleeList" class="hover-table" (onSuccess)="getAllEnrollees()">
-                    <td class="id-width"><a [routerLink]="['/enrollees', enrollee.id]">{{enrollee.id}}</a></td>
-                    <td class="name-width">{{enrollee.name}}</td>
-                    <td class="dob-width">{{enrollee.dateOfBirth | date: "MM/dd/yyyy"}}</td>
-                    <td class="Status-width">{{ enrollee.active === true ? "Active" : "Inactive" }}</td>
+                <tr *ngFor="let enrollee of enrollees" class="hover-table" (onSuccess)="getAllEnrollees()">
+                    <td class="id-width"><a [routerLink]="['/enrollees', enrollee.id]">{{enrollee?.id}}</a></td>
+                    <td class="name-width">{{enrollee?.name}}</td>
+                    <td class="dob-width">{{enrollee?.dateOfBirth?(enrollee.dateOfBirth | date: "MM/dd/yyyy"):'NA'}}
+                    </td>
+                    <td class="Status-width">{{ enrollee?.active === true ? "Active" : "Inactive" }}</td>
                 </tr>
             </table>
         </div>
     </div>
 </div>
-<router-outlet></router-outlet>

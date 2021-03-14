@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable }  from 'rxjs';
-
+import { Observable } from 'rxjs';
+import { User } from '../models/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,24 +10,24 @@ import { Observable }  from 'rxjs';
 export class EnrolleeService {
 
   enrolleeList = [];
-//Define the Base url
-public baseUrl = "http://localhost:8080/";
-  
-//Define the endpoint
-url = "enrollees";
+  //Define the Base url
+  public baseUrl = environment.baseUrl;
+
+  //Define the endpoint
+  url = "enrollees";
 
   constructor(private http: HttpClient) { }
 
-  getEnrollees(): Observable<any> {
-    return this.http.get(this.baseUrl + this.url);
+  getEnrollees(): Observable<Array<User>> {
+    return this.http.get<Array<User>>(this.baseUrl + this.url);
   }
 
-  getEnrolleeDetails(id): Observable<any> {
-    return this.http.get(this.baseUrl + this.url + '/' + id);
+  getEnrolleeDetails(id): Observable<User> {
+    return this.http.get<User>(this.baseUrl + this.url + '/' + id);
   }
-  
-  updateEnrollee(id,detail): Observable<any> {
-    return this.http.put(this.baseUrl + this.url + '/' + id,detail);
+
+  updateEnrollee(id, detail): Observable<User> {
+    return this.http.put<User>(this.baseUrl + this.url + '/' + id, detail);
   }
 
 }
