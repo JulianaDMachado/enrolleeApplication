@@ -1,33 +1,34 @@
 <div class="container"></div>
 <div class="row">
     <div class="col-12">
-        <div class='card' *ngIf='detailedUser'>
+        <div class='card' *ngIf='user'>
             <div class='card-header'>
                 <h1>Enrollee Details</h1>
             </div>
-            <div class='card-body' (onUpdate)="updateSuccess()">
+            <div class='card-body'>
                 <div class='row'>
                     <div class='col-md-12'>
                         <div class='row'>
                             <div class='col-md-5 first-column'>Name</div>
                             <div class='col-md-1 second-column'>:</div>
-                            <div class='col-md-6 third-column'>{{detailedUser?.name}}</div>
+                            <div class='col-md-6 third-column'>{{user?.name}}</div>
                         </div>
                         <div class='row'>
                             <div class='col-md-5 first-column'>Id</div>
                             <div class='col-md-1 second-column'>:</div>
-                            <div class='col-md-6 third-column'>{{detailedUser?.id}}</div>
+                            <div class='col-md-6 third-column'>{{user?.id}}</div>
                         </div>
                         <div class='row'>
                             <div class='col-md-5 first-column'>DOB</div>
                             <div class='col-md-1 second-column'>:</div>
-                            <div class='col-md-6 third-column'>{{detailedUser?.dateOfBirth == null ? "NA" :
-                                detailedUser?.dateOfBirth }}</div>
+                            <div class='col-md-6 third-column'>{{user?.dateOfBirth?(user.dateOfBirth |
+                                date:
+                                "MM/dd/yyyy"):'NA'}}</div>
                         </div>
                         <div class='row'>
                             <div class='col-md-5 first-column'>Status</div>
                             <div class='col-md-1 second-column'>:</div>
-                            <div class='col-md-6 third-column'>{{ detailedUser?.active === true ? "Active" : "Inactive"
+                            <div class='col-md-6 third-column'>{{ user?.active === true ? "Active" : "Inactive"
                                 }}</div>
                         </div>
                     </div>

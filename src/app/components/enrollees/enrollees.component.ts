@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { EnrolleeService } from '../../services/enrollee.service';
-import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'enrollees',
@@ -10,12 +9,12 @@ import { Router } from '@angular/router';
 })
 
 export class EnrolleesComponent implements OnInit {
+  private _enrollees: Array<User>;
+  enrollees = [];
 
-  enrolleeList = [];
+  isActive = false;
 
-  isActive = true;
-
-  constructor(private http: HttpClient, private service: EnrolleeService, private router: Router) { }
+  constructor(private service: EnrolleeService) { }
 
   ngOnInit(): void {
     this.getAllEnrollees();
@@ -23,24 +22,20 @@ export class EnrolleesComponent implements OnInit {
 
   getAllEnrollees(): void {
     this.service.getEnrollees().subscribe((resp => {
-      this.enrolleeList = resp as any;
+      this._enrollees = resp;
+      this.enrollees = this._enrollees;
     }));
   }
 
   toggleStatus(): void {
-
-    if (this.isActive == false) {
-      this.service.getEnrollees().subscribe((resp => {
-        this.enrolleeList = resp.filter(item => item.active === false);
-      }));
-      this.isActive = true;
-    }
-
-    else {
-      this.service.getEnrollees().subscribe((resp => {
-        this.enrolleeList = resp.filter(item => item.active === true);
-      }));
-      this.isActive = false;
+    this.isActive = !this.isActive;
+    if (this._enrollees) {
+      if (this.isActive) {
+        this.enrollees = this._enrollees.filter(item => item.active);
+      }
+      else {
+        this.enrollees = this._enrollees.filter(item => !item.active);
+      }
     }
   }
 }
