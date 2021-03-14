@@ -5,7 +5,9 @@ import { EnrolleeService } from 'src/app/services/enrollee.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { ToastrService } from 'ngx-toastr';
-const SUCCESS_MSG = 'User was updated successfully';
+
+const SUCCESS_MSG = 'User updated successfully';
+
 @Component({
   selector: 'app-update-enrollee',
   templateUrl: './update-enrollee.component.html',
